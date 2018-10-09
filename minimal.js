@@ -162,7 +162,7 @@ module.exports = function (dirname, keys, opts) {
   db.queue = wait(function (msg, cb) {
     queue(msg, function (err) {
       if(err) cb(err)
-      else cb(null, toKeyValueTimestamp(msg))
+      else cb(null, toKeyValueTimestamp(msg, state.feeds[msg.author].id))
     })
   })
 
